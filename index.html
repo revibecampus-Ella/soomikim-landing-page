@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김수미 | 상상우리 AI 컨설턴트</title>
+    <style>
+        /* 이미지의 우아한 분위기를 반영한 폰트 및 컬러 설정 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #2D244E; /* 이미지의 딥 퍼플 */
+            --accent-color: #E08C3A;  /* 이미지의 골드/오렌지 */
+            --bg-color: #F7F3F0;      /* 이미지의 따뜻한 베이지 배경 */
+            --text-main: #333333;
+            --text-sub: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #e5e5e5;
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 모바일 최적화 컨테이너 */
+        .wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 헤더 섹션: 이름 및 상세 자기소개 반영 */
+        header {
+            padding: 50px 30px 40px;
+            text-align: left;
+            background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(247,243,240,0) 100%);
+        }
+
+        .name-container {
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 42px;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 5px;
+            border-bottom: 2.5px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 2px;
+            letter-spacing: -0.5px;
+        }
+
+        /* 상세 자기소개 텍스트 스타일 */
+        .intro-text {
+            margin-top: 25px;
+            font-size: 15.5px;
+            color: #444;
+            word-break: keep-all;
+            text-align: justify;
+            line-height: 1.75;
+            letter-spacing: -0.2px;
+        }
+
+        .intro-text h2 {
+            font-size: 16px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            border: none;
+            display: block;
+        }
+        
+        .intro-text h2::after {
+            display: none;
+        }
+
+        .intro-text p {
+            margin-bottom: 12px;
+        }
+
+        .intro-text strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* 프로필 사진 영역 */
+        .profile-img-container {
+            width: 100%;
+            padding: 0 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            background-color: #ddd;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(45, 36, 78, 0.15);
+            background-image: url('aiconsultant-smkim.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 30px 30px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: #d1d5db;
+            margin-left: 15px;
+        }
+
+        /* 경력 카드 */
+        .career-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .career-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .career-date {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .career-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .career-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            word-break: keep-all;
+        }
+
+        /* 키워드 뱃지 */
+        .keyword-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword {
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13.5px;
+            font-weight: 500;
+        }
+
+        /* 하단 인용구 및 슬로건 섹션 */
+        .quote-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            font-weight: 300;
+            font-style: italic;
+            word-break: keep-all;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .quote-text strong {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* 하단 슬로건과 로고를 나란히 배치 */
+        .slogan-footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .footer-sub-text {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .logo-img-small {
+            height: 23px;
+            width: auto;
+            opacity: 0.9;
+            filter: brightness(1.2);
+        }
+
+        /* 홈페이지 주소 스타일 - 기존 14px에서 5% 축소하여 13.3px 적용 */
+        .footer-web-link {
+            display: block;
+            margin-top: 8px;
+            font-size: 13.3px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-web-link:active {
+            opacity: 0.8;
+        }
+
+        /* 연락처 버튼 */
+        .action-area {
+            padding: 20px 30px 40px;
+            display: flex;
+            gap: 10px;
+            background-color: var(--bg-color);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-call {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-mail {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 아이콘 리스트 */
+        .profile-summary {
+            margin-top: 10px;
+            list-style: none;
+        }
+        .profile-summary li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14.5px;
+            color: var(--text-main);
+        }
+        .icon-circle {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .icon-circle svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- 헤더: 이름 및 상세 소개 -->
+    <header>
+        <div class="name-container">
+            <h1 class="name">김수미</h1>
+            <div class="job-title">상상우리 AI 컨설턴트 · AI 교육 설계자</div>
+        </div>
+        
+        <div class="intro-text">
+            <h2>소개</h2>
+            <p>25년간 금융·공공 분야에서 IT 시스템을 분석하고 설계한 경험을 바탕으로, 지금은 AI 교육 설계와 컨설팅에 집중하고 있습니다. 기술을 어렵게 느끼는 분들이 일상과 업무에서 AI를 자연스럽게 활용할 수 있도록 현장 중심의 교육을 설계하고 직접 강의합니다.</p>
+        </div>
+    </header>
+
+    <!-- 사진 영역 -->
+    <div class="profile-img-container">
+        <div class="profile-img"></div>
+    </div>
+
+    <!-- 프로필 핵심 요약 -->
+    <section>
+        <h2>프로필</h2>
+        <ul class="profile-summary">
+            <li>
+                <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0-2-.9-2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zm10 15H4V9h16v11z"/></svg></div>
+                25년+ IT·금융·공공 프로젝트 경험
+            </li>
+            <li>
+                <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.89 9L12 4.57 20.11 9 12 13.43 3.89 9z"/></svg></div>
+                AI 리터러시 · 디지털 전환 교육 전문
+            </li>
+            <li>
+                <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+                시스템 분석·설계 기반의 실질적 문제 해결
+            </li>
+        </ul>
+    </section>
+
+    <!-- 주요 경력 -->
+    <section>
+        <h2>주요 경력</h2>
+        <div class="career-list">
+            <div class="career-item">
+                <div class="career-date">2026 - 현재</div>
+                <div class="career-title">상상우리 / AI 컨설턴트</div>
+                <p class="career-desc">소상공인 대상 AI 활용과 디지털 전환을 지원합니다.</p>
+            </div>
+            <div class="career-item">
+                <div class="career-date">2024 - 현재</div>
+                <div class="career-title">중랑여성인력개발센터 · 카카오페이 시니어 디지털스쿨</div>
+                <p class="career-desc">AI 강사 · 교육 강사로서 생성형 AI·디지털 활용 교육과 시니어 대상 디지털 금융 교육을 진행합니다.</p>
+            </div>
+            <div class="career-item">
+                <div class="career-date">2024</div>
+                <div class="career-title">NIA 초거대 AI 데이터 구축사업 / 데이터 구축 참여</div>
+                <p class="career-desc">트립체인 데이터 수집 앱 및 데이터 가공에 참여했습니다.</p>
+            </div>
+            <div class="career-item">
+                <div class="career-date">2014 - 2024</div>
+                <div class="career-title">금융·공공 IT 프로젝트 (KOSA 보유)<br>분석·설계 전문가</div>
+                <p class="career-desc">하나은행, 수협은행, 한국사회보장정보원 등 주요 금융권 차세대 시스템 분석과 데이터 기반 업무 설계·개발을 수행했습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 전문 분야 키워드 -->
+    <section>
+        <h2>전문 분야 키워드</h2>
+        <div class="keyword-container">
+            <div class="keyword">#AI 교육 설계</div>
+            <div class="keyword">#생성형 AI 활용</div>
+            <div class="keyword">#Google Workspace · AI 생산성 도구 전문 강사</div>
+            <div class="keyword">#시니어 디지털 리터러시</div>
+            <div class="keyword">#디지털 전환 컨설팅</div>
+        </div>
+    </section>
+
+    <!-- 하단 슬로건 섹션 -->
+    <div class="quote-section">
+        <p class="quote-text">"AI 시대, 기술보다 중요한 것은<br><strong>사람을 이해하는 힘</strong>입니다."</p>
+        <div class="slogan-footer-row">
+            <p class="footer-sub-text">함께 성장하는 든든한 파트너가 되겠습니다.</p>
+            <img src="revibe-logo.jpg" alt="re:vibe 로고" class="logo-img-small">
+        </div>
+        <!-- 홈페이지 주소 -->
+        <a href="https://www.revibecampus.com" target="_blank" class="footer-web-link">www.revibecampus.com</a>
+    </div>
+
+    <!-- 고정 하단 액션 버튼 -->
+    <div class="action-area">
+        <a href="tel:010-0000-0000" class="btn btn-call">전화 문의</a>
+        <a href="mailto:revibecampus@gmail.com" class="btn btn-mail">이메일 제안</a>
+    </div>
+</div>
+
+</body>
+</html>
